@@ -1,0 +1,17 @@
+div
+  .form-group(plug="widget")
+    label.d-flex.align-items-end
+      div
+        span(ld="label")
+        span.text-danger.ml-2(ld="is-required") *
+      .flex-grow-1
+      .m-edit: .text-danger.text-sm(ld="limitation")
+    .text-sm.text-muted: div(ld="desc", style="margin:-.6em 0 .7em")
+    .m-edit(ld="input")
+      div
+        label.mr-3.mb-2.clickable
+          input.mr-1(ld="checkbox",type="checkbox")
+          span(ld="text")
+    .m-edit: .text-danger.text-sm.mt-2.note(ld-each="note")
+    .m-view(ld="content")
+  script(type="@plotdb/block"): include:lsc index.ls
