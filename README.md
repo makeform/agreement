@@ -1,1 +1,5 @@
-# agreement
+# @makeform/agreement
+
+## License
+
+MIT
