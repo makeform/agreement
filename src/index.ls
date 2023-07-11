@@ -29,6 +29,8 @@ mod = ({root, ctx, data, parent, t, i18n}) ->
           if !@mod.info.meta.readonly => node.removeAttribute \disabled
           else node.setAttribute \disabled, null
           node.checked = !!lc.value
+        "checkbox-for-view": ({node}) ~>
+          node.checked = !!lc.value
 
   render: -> @mod.child.view.render!
   is-empty: (v) -> !v
