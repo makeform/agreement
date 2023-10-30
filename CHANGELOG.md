@@ -1,5 +1,11 @@
 # Change Logs
 
+## v1.0.3
+
+ - support error tips
+ - support inline mode
+ 
+
 ## v1.0.2
 
  - correctly render widget in view mode
