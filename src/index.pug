@@ -5,7 +5,7 @@ div
         span(ld="label")
         span.text-danger.ml-2(ld="is-required") *
       .flex-grow-1
-      .m-edit: .text-danger.text-sm(ld="limitation")
+      .m-edit: .mf-note.text-sm(ld="limitation")
     .text-sm.text-muted(ld="display", data-display="block"): div(ld="desc", style="margin:-.6em 0 .7em")
     .m-edit(ld="input"): .d-flex
       label.mr-2.mb-2.clickable.position-relative
@@ -16,5 +16,5 @@ div
     .m-view
       input.mr-1(ld="checkbox-for-view",type="checkbox",disabled,readonly)
       span(ld="text")
-    .m-edit(ld="display",data-display="block"): .text-danger.text-sm.mt-2.note(ld-each="note")
+    .m-edit(ld="display",data-display="block"): .mf-note.text-sm.mt-2.note(ld-each="note")
   script(type="@plotdb/block"): include:lsc index.ls
