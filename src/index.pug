@@ -7,6 +7,21 @@ div
       .flex-grow-1
       .m-edit: .mf-note.text-sm(ld="limitation")
     .text-sm.text-muted(ld="display", data-display="block"): div(ld="desc", style="margin:-.6em 0 .7em")
+
+    .d-flex.flex-column.g-4.mb-2
+      div(ld-each="document")
+        .border.rounded-sm.shadow-sm(style="min-height:300px")
+          div(ld="link")
+          object.d-none.w-100.h-100.flex-grow-1(style="vertical-align:top;min-height:300px",
+          ld="link",data="about:blank",type="application/pdf")
+            embed.w-100.border(ld="link",src="about:blank",type="application/pdf")
+          .w-100.p-2(ld="for-html")
+            iframe.d-none.w-100.flex-grow-1.border-0(title="consent-document",ld="link",src="about:blank")
+        .text-right(style="margin-top:.1em")
+          a.text-sm(ld="link",target="_blank",rel="noopener noreferer")
+            span.mr-1(ld="open")
+            i.i-new-page.text-sm
+
     .m-edit(ld="input"): .d-flex
       label.mr-2.mb-2.clickable.position-relative
         input.mr-1(ld="checkbox",type="checkbox")

@@ -1,5 +1,11 @@
 # Change Logs
 
+## v1.1.0
+
+ - support configurable document for agreement
+ - support PDF height calculation
+
+
 ## v1.0.4
 
  - use `mf-note` to replace styling in note-related tag.
