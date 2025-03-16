@@ -1,14 +1,6 @@
 div
-  .form-group.has-tips.manual(ld="base error-root",plug="widget")
-    div(ld="display", data-display="block"): label.d-flex.align-items-end.flex-wrap
-      div
-        span(ld="label")
-        span.text-danger.ml-2(ld="is-required") *
-      .flex-grow-1
-      .m-edit: .mf-note.text-sm(ld="limitation")
-    .text-sm.text-muted(ld="display", data-display="block"): div(ld="desc", style="margin:-.6em 0 .7em")
-
-    .d-flex.flex-column.g-4.mb-2
+  div(plug="body")
+    .m-edit: .d-flex.flex-column.g-2
       div(ld-each="document")
         .border.rounded-sm.shadow-sm(style="min-height:300px")
           div(ld="link")
@@ -21,15 +13,13 @@ div
           a.text-sm(ld="link",target="_blank",rel="noopener noreferer")
             span.mr-1(ld="open")
             i.i-new-page.text-sm
-
     .m-edit(ld="input"): .d-flex
-      label.mr-2.mb-2.clickable.position-relative
+      label.mb-0.clickable.position-relative.has-tips.manual(ld="error-root")
         input.mr-1(ld="checkbox",type="checkbox")
         span.no-select(ld="text")
+        span(ld="display", data-display="inline"): span.text-danger.ml-2(ld="is-required") *
         .hover-tip.tip-sm: div(ld-each="error")
-      div(ld="display", data-display="inline"): span.text-danger.ml-2(ld="is-required") *
     .m-view
       input.mr-1(ld="checkbox-for-view",type="checkbox",disabled,readonly)
       span(ld="text")
-    .m-edit(ld="display",data-display="block"): .mf-note.text-sm.mt-2.note(ld-each="note")
   script(type="@plotdb/block"): include:lsc index.ls

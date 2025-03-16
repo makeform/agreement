@@ -1,5 +1,10 @@
 # Change Logs
 
+## v2.0.0 (upcoming)
+
+ - tweak DOM based on updated `@makeform/common` DOM structure.
+
+
 ## v1.1.0
 
  - support configurable document for agreement
