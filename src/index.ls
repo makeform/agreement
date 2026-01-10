@@ -1,6 +1,8 @@
 module.exports =
   pkg:
-    name: "@makeform/agreement", extend: name: '@makeform/common'
+    name: \@makeform/agreement
+    extend: name: \@makeform/common
+    host: name: \@grantdash/composer
     dependencies: []
     i18n:
       "en":
@@ -9,11 +11,14 @@ module.exports =
       "zh-TW":
         "未勾選": "未勾選"
         "open": "在新視窗開啟此文件"
-  init: (opt) -> opt.pubsub.fire \subinit, mod: mod(opt)
+  init: (opt) ->
+    opt.pubsub.on \inited, (o = {}) ~> @ <<< o
+    opt.pubsub.fire \subinit, mod: mod.call @, opt
 
 mod = ({root, manager, ctx, data, parent, t, i18n}) ->
   {ldview} = ctx
   lc = {value: null}
+  hitf = ~> @hitf
   id = "_#{Math.random!toString(36)substring(2)}"
   pdfjsLib = null
   get-pdfjs = ->
@@ -32,13 +37,15 @@ mod = ({root, manager, ctx, data, parent, t, i18n}) ->
     @on \meta, (v) ~>
     @mod.child.view = view = new ldview do
       root: root
-      action: change:
-        checkbox: ({node, ctx}) ~> _update if node.checked => true else false
-      text:
-        content: ({node}) ~>
-          if @is-empty! => t("未勾選") else @mod.info.config.value or ""
-        text: ({node}) ~> t(@mod.info.config.value or "")
+      action:
+        change: checkbox: ({node, ctx}) ~> _update if node.checked => true else false
+        click: text: hitf!edit path: \config.value
+      text: content: ({node}) ~>
+        if @is-empty! => t("未勾選") else hitf!totext itf!content @mod.info.config.value
       handler:
+        text: ({node, ctx}) ->
+          node.classList.toggle \no-select, !!hitf!get!readonly
+          hitf!render(path: \config.value)({node, ctx})
         document:
           list: ~> @mod.info.config.documents or []
           key: -> it
