@@ -1,5 +1,10 @@
 # Change Logs
 
+## v2.1.1
+
+ - upgrade dependencies
+
+
 ## v2.1.0
 
  - support @grantdash/composer host
