@@ -1,15 +1,15 @@
 {
   "name": "@makeform/agreement",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "",
   "scripts": {},
   "keywords": [],
   "author": "zbryikt",
   "license": "MIT",
   "dependencies": {
-    "@plotdb/srcbuild": "^0.0.69"
+    "@plotdb/srcbuild": "^0.0.71"
   },
   "devDependencies": {
-    "fedep": "^1.6.0"
+    "fedep": "^1.7.6"
   }
 }
